@@ -8,9 +8,9 @@
  * @acces   private
  */
 const getGoals = (req, res) => {
-  res.status(200).json({
-    message: "Get goals",
-  });
+    res.status(200).json({
+        message: "Get goals",
+    });
 };
 
 /**
@@ -23,9 +23,10 @@ const getGoals = (req, res) => {
  * @acces   private
  */
 const setGoal = (req, res) => {
-  res.status(201).json({
-    message: "Set goal",
-  });
+    console.log(req.body);
+    res.status(201).json({
+        message: "Set goal",
+    });
 };
 
 /**
@@ -38,9 +39,9 @@ const setGoal = (req, res) => {
  * @acces   private
  */
 const updateGoal = (req, res) => {
-  res.status(200).json({
-    message: `Update goal ${req.params.id}`,
-  });
+    res.status(200).json({
+        message: `Update goal ${req.params.id}`,
+    });
 };
 
 /**
@@ -53,14 +54,14 @@ const updateGoal = (req, res) => {
  * @acces   private
  */
 const deleteGoal = (req, res) => {
-  res.status(200).json({
-    message: `Delete goal ${req.params.id}`,
-  });
+    res.status(200).json({
+        message: `Delete goal ${req.params.id}`,
+    });
 };
 
 module.exports = {
-  getGoals,
-  setGoal,
-  updateGoal,
-  deleteGoal,
+    getGoals,
+    setGoal,
+    updateGoal,
+    deleteGoal,
 };
