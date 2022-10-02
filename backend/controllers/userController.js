@@ -87,7 +87,7 @@ const loginUser = asyncHandler(async (req, res) => {
  * @param   {*} res
  *
  * @desc    Get user data
- * @acces   public
+ * @acces   private
  */
 const getMe = asyncHandler(async (req, res) => {
     res.json({ message: "User data display" });
