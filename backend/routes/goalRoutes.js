@@ -8,6 +8,8 @@ const {
     deleteGoal,
 } = require("../controllers/goalController");
 
+const { protect } = require("../middlewares/authMiddleware");
+
 /**
  * An alternative to all lined toutes
  * we can chained the requests
@@ -16,12 +18,12 @@ const {
  * router.route("/:id").put(updateGoal).delete(deleteGoal);
  */
 
-router.get("/", getGoals);
+router.get("/", protect, getGoals);
 
-router.post("/", setGoal);
+router.post("/", protect, setGoal);
 
-router.put("/:id", updateGoal);
+router.put("/:id", protect, updateGoal);
 
-router.delete("/:id", deleteGoal);
+router.delete("/:id", protect, deleteGoal);
 
 module.exports = router;
