@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import GoalFrom from "../components/GoalFrom";
 import { getGoals, reset } from "../features/goals/goalSlice";
 import Spinner from "../components/Spinner";
+import GoalItem from "../components/GoalItem";
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -28,7 +29,7 @@ function Dashboard() {
         return () => {
             dispatch(reset());
         };
-    }, []);
+    }, [user, navigate, isError, message, dispatch]);
 
     if (isLoading) {
         return <Spinner />;
@@ -42,6 +43,18 @@ function Dashboard() {
             </section>
 
             <GoalFrom />
+
+            <section className="content">
+                {goals.length > 0 ? (
+                    <div className="goals">
+                        {goals.map((goal) => (
+                            <GoalItem key={goal._id} goal={goal} />
+                        ))}
+                    </div>
+                ) : (
+                    <h3>You have not set any goals</h3>
+                )}
+            </section>
         </>
     );
 }
